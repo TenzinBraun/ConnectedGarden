@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ConnectedGarded</string>
+    <string name="jardin_exterieur">Jardin Exterieur</string>
+    <string name="jardin_interieur">Jardin Interieur</string>
+</resources>
