@@ -14,6 +14,8 @@ class SensorsEquipmentViewModel(private val
     repository: SensorsEquipmentRepository
 ) : ViewModel() {
 
+    val sensors = repository.getSensorValues(viewModelScope)
+    
     private fun getLocal(context: Context) =  AppDatabase.getInstance(context).sensorDao()
 
     fun getItemSensor(context: Context): LiveData<List<ItemSensor>> {

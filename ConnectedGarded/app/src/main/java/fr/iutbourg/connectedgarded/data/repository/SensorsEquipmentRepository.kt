@@ -5,7 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import fr.iutbourg.connectedgarded.data.database.datasource.SensorEquipmentDataSource
 import fr.iutbourg.connectedgarded.data.database.room.SensorsDao
 import fr.iutbourg.connectedgarded.data.model.ItemSensor
+import fr.iutbourg.connectedgarded.data.model.SensorApiResponse
+import fr.iutbourg.connectedgarded.data.model.SensorModel
 import fr.iutbourg.connectedgarded.data.model.SensorsEquipment
+import fr.iutbourg.connectedgarded.data.networking.datasource.SensorDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -50,6 +53,15 @@ private class SensorsEquipmentRepositoryImpl : SensorsEquipmentRepository {
         return SensorEquipmentDataSource(local).addSensorEquipement(sensorName)
     }
 
+    override fun getSensorValues(scope: CoroutineScope): LiveData<SensorModel> {
+        val data = MutableLiveData<SensorModel>()
+        scope.launch(Dispatchers.IO){
+            val dataSource = SensorDataSource.instance
+            data.postValue(dataSource.getSensorsValues())
+        }
+        return data
+    }
+
 }
 
 
@@ -65,6 +77,8 @@ interface SensorsEquipmentRepository {
     ): LiveData<List<ItemSensor>>
 
     fun addSensor(sensorName: String, viewModelScope: CoroutineScope, local: SensorsDao) : SensorsEquipment
+
+    fun getSensorValues(scope: CoroutineScope): LiveData<SensorModel>
 
     companion object {
         /**
