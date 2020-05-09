@@ -1,7 +1,8 @@
-package fr.iutbourg.iotv2
+package fr.iutbourg.iotv2.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import fr.iutbourg.iotv2.R
 
 class MainActivity : AppCompatActivity() {
 
