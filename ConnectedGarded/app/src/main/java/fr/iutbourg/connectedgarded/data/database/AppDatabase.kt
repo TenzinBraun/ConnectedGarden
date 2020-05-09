@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import fr.iutbourg.connectedgarded.data.database.room.SensorsDao
 import fr.iutbourg.connectedgarded.data.model.*
 
-@Database(entities = [SensorModel::class, TEMPOUTDHT22::class, TEMPINTDHT22::class, ACTUATOR1STATE::class], exportSchema = true, version = 1)
+@Database(entities = [SensorModel::class, TEMPOUTDHT22::class, TEMPINTDHT22::class, ACTUATOR1STATE::class], exportSchema = false, version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun sensorDao(): SensorsDao
 

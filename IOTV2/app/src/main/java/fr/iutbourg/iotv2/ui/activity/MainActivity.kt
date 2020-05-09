@@ -3,6 +3,8 @@ package fr.iutbourg.iotv2.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import fr.iutbourg.iotv2.R
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
