@@ -35,7 +35,7 @@ data class SensorModel(
     @SerializedName("PIR2_STATE")
     @Expose
     var pir2State: Int? = null,
-    
+  
     @SerializedName("description")
     @Expose
     var description: String? = null,
@@ -49,12 +49,12 @@ data class SensorModel(
     var titre: String? = null
 )
 
-
 @Entity(tableName = "TEMPINTDHT22")
 data class TEMPINTDHT22(
     @PrimaryKey(autoGenerate = true)
     @SerializedName("temp_in_dht22_id")
     var tempInDHT22ID: Int?,
+  
     @SerializedName("humidity")
     @Expose
     var humidity: Double? = null,
@@ -64,11 +64,13 @@ data class TEMPINTDHT22(
     var temperature: Double? = null
 
 )
+
 @Entity(tableName = "TEMPOUTDHT22")
 data class TEMPOUTDHT22(
     @PrimaryKey(autoGenerate = true)
     @SerializedName("temp_out_dht22_id")
     var tempOutDHT22ID: Int?,
+  
     @SerializedName("humidity")
     @Expose
     var humidity: Double? = null,
@@ -76,4 +78,9 @@ data class TEMPOUTDHT22(
     @SerializedName("temperature")
     @Expose
     var temperature: Int? = null
+)
+
+data class SensorApiResponse (
+    val sensor: SensorModel? =  null,
+    val message: Int = 1
 )
