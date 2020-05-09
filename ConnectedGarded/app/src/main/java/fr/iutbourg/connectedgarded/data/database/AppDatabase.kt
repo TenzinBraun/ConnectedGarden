@@ -5,10 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import fr.iutbourg.connectedgarded.data.database.room.SensorsDao
-import fr.iutbourg.connectedgarded.data.model.ItemSensor
-import fr.iutbourg.connectedgarded.data.model.SensorsEquipment
+import fr.iutbourg.connectedgarded.data.model.*
 
-@Database(entities = [SensorsEquipment::class, ItemSensor::class], version = 4)
+@Database(entities = [SensorModel::class, TEMPOUTDHT22::class, TEMPINTDHT22::class, ACTUATOR1STATE::class], exportSchema = true, version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun sensorDao(): SensorsDao
 
@@ -28,7 +27,7 @@ abstract class AppDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
-                AppDatabase::class.java, "con.db"
+                AppDatabase::class.java, "test.db"
             )
                 .build()
     }

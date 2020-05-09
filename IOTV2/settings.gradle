@@ -1,0 +1,2 @@
+rootProject.name='IOT V2'
+include ':app'
