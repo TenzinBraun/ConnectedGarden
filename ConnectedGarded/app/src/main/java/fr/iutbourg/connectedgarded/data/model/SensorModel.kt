@@ -1,41 +1,41 @@
 package fr.iutbourg.connectedgarded.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 
-
+@Entity(tableName = "ACTUATOR1STATE")
 data class ACTUATOR1STATE(
+    @PrimaryKey(autoGenerate = true)
+    @SerializedName("actuator1StateID")
+    var actuator1StateID: Int ,
     @SerializedName("ACTUATOR9_STATE")
     @Expose
-    var aCTUATOR9STATE: Int? = null
+    var actuatorState: Int? = null
 )
 
+
+@Entity(tableName = "SensorModel")
 data class SensorModel(
-    @SerializedName("ACTUATOR1_STATE")
-    @Expose
-    var aCTUATOR1STATE: ACTUATOR1STATE? = null,
+    @PrimaryKey(autoGenerate = true)
+    @SerializedName("sensor_id")
+    var sensorID: Int,
 
     @SerializedName("ACTUATOR9_STATE")
     @Expose
-    var aCTUATOR9STATE: Int? = null,
+    var actuator9State: Int? = null,
 
     @SerializedName("PIR1_STATE")
     @Expose
-    var pIR1STATE: Int? = null,
+    var pir1State: Int? = null,
 
     @SerializedName("PIR2_STATE")
     @Expose
-    var pIR2STATE: Int? = null,
-
-    @SerializedName("TEMP_INT_DHT22")
-    @Expose
-    var tEMPINTDHT22: TEMPINTDHT22? = null,
-
-    @SerializedName("TEMP_OUT_DHT22")
-    @Expose
-    var tEMPOUTDHT22: TEMPOUTDHT22? = null,
-
+    var pir2State: Int? = null,
+    
     @SerializedName("description")
     @Expose
     var description: String? = null,
@@ -49,7 +49,12 @@ data class SensorModel(
     var titre: String? = null
 )
 
+
+@Entity(tableName = "TEMPINTDHT22")
 data class TEMPINTDHT22(
+    @PrimaryKey(autoGenerate = true)
+    @SerializedName("temp_in_dht22_id")
+    var tempInDHT22ID: Int?,
     @SerializedName("humidity")
     @Expose
     var humidity: Double? = null,
@@ -59,8 +64,11 @@ data class TEMPINTDHT22(
     var temperature: Double? = null
 
 )
-
+@Entity(tableName = "TEMPOUTDHT22")
 data class TEMPOUTDHT22(
+    @PrimaryKey(autoGenerate = true)
+    @SerializedName("temp_out_dht22_id")
+    var tempOutDHT22ID: Int?,
     @SerializedName("humidity")
     @Expose
     var humidity: Double? = null,
