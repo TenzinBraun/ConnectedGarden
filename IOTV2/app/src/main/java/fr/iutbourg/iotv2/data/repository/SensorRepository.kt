@@ -2,7 +2,6 @@ package fr.iutbourg.iotv2.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import fr.iutbourg.iotv2.data.model.SensorApiResponse
 import fr.iutbourg.iotv2.data.model.SensorModel
 import fr.iutbourg.iotv2.data.networking.datasource.SensorDataSource
@@ -13,10 +12,9 @@ import kotlinx.coroutines.launch
 class SensorRepositoryImpl: SensorRepository {
 
     override fun getSensorsValues(
-        viewModelScope: CoroutineScope,
-        local: SensorDao
+        viewModelScope: CoroutineScope
     ): LiveData<SensorModel> {
-        val data = MutableLiveData<SensorModel>()
+        val data = MutableLiveData<SensorApiResponse>()
         viewModelScope.launch(Dispatchers.IO) {
             val dataSource = SensorDataSource.instance
             data.postValue(dataSource.getSensorsValues())
@@ -28,8 +26,7 @@ class SensorRepositoryImpl: SensorRepository {
 
 interface SensorRepository {
     fun getSensorsValues(
-        viewModelScope: CoroutineScope,
-        local: SensorDao
+        viewModelScope: CoroutineScope
     ): LiveData<SensorModel>
 
     companion object {
