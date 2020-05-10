@@ -2,6 +2,7 @@ package fr.iutbourg.iotv2.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import fr.iutbourg.iotv2.data.model.SensorApiResponse
 import fr.iutbourg.iotv2.data.SensorDao
 import fr.iutbourg.iotv2.data.model.*
 import fr.iutbourg.iotv2.data.networking.datasource.SensorDataSource
@@ -13,12 +14,13 @@ class SensorRepositoryImpl : SensorRepository {
 
     override fun getSensorsValues(
         viewModelScope: CoroutineScope
-    ): LiveData<SensorModel> {
+    ): LiveData<SensorApiResponse> {
         val data = MutableLiveData<SensorApiResponse>()
         viewModelScope.launch(Dispatchers.IO) {
             val dataSource = SensorDataSource.instance
             data.postValue(dataSource.getSensorsValues())
         }
+        return data
     }
 
     override fun getActuator1STATE(
@@ -151,7 +153,7 @@ class SensorRepositoryImpl : SensorRepository {
 interface SensorRepository {
     fun getSensorsValues(
         viewModelScope: CoroutineScope
-    ): LiveData<SensorModel>
+    ): LiveData<SensorApiResponse>
 
     fun getActuator1STATE(viewModelScope: CoroutineScope, dao: SensorDao): LiveData<ACTUATOR1STATE>
     fun getSensorModel(viewModelScope: CoroutineScope, local: SensorDao): LiveData<SensorModel>
