@@ -22,15 +22,23 @@ class MainActivity : AppCompatActivity() {
             sensorViewModel = ViewModelProvider(this, SensorViewModel).get()
         } ?: throw IllegalStateException("Invalid access")
 
-        sensorViewModel.sensor.observe(this) {
+        loadData()
+        this.swipe_refresher.setOnRefreshListener {
+            loadData()
+            this.swipe_refresher.isRefreshing = false
+        }
+    }
+
+    private fun loadData() {
+        sensorViewModel.sensor().observe(this) {
             it.let {
                 it.sensor.let {
                     if (it != null) {
-                        it.temp_int_dht22.let {
+                        it.temp_int_dht22?.let {
                             this.value_humidity_IN.text = it.humidity.toString()
                             this.value_temperature_IN.text = it.temperature.toString()
                         }
-                        it.temp_out_dht22.let {
+                        it.temp_out_dht22?.let {
                             this.value_temperature_OUT.text = it.temperature.toString()
                             this.value_humidity_OUT.text = it.humidity.toString()
                         }

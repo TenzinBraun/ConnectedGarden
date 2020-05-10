@@ -29,6 +29,7 @@ class SensorViewModel(
     fun insertTempOutDHT22(context: Context) = repository.insertTempOutDHT22(viewModelScope, getLocal(context))
     fun insertTempInTDHT22(context: Context) = repository.insertTEMPINTDHT22(viewModelScope, getLocal(context))
 
+  fun sensor() = repository.getSensorsValues(viewModelScope)
 
     companion object Factory : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")

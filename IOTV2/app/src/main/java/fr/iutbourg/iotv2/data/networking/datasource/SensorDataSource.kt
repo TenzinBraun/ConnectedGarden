@@ -8,7 +8,6 @@ import fr.iutbourg.iotv2.data.networking.createApi
 private class SensorDataSourceImpl (private val api: SensorApi): SensorDataSource{
     override suspend fun getSensorsValues(): SensorApiResponse {
         val response = api.getAllSensorsValues()
-
         return if (response.isSuccessful) {
             val sensor = response.body()
             SensorApiResponse(sensor)

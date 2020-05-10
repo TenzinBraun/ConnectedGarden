@@ -25,10 +25,6 @@ data class SensorModel(
     @SerializedName("sensor_id")
     var sensorID: Int,
 
-    @SerializedName("ACTUATOR1_STATE")
-    @Expose
-    var actuator1State: ACTUATOR1STATE,
-
     @SerializedName("ACTUATOR9_STATE")
     @Expose
     var actuator9State: Int? = null,
@@ -51,17 +47,22 @@ data class SensorModel(
 
     @SerializedName("titre")
     @Expose
-    var titre: String? = null,
+    var titre: String? = null
 
+
+) {
     @SerializedName("TEMP_INT_DHT22")
     @Expose
-    var temp_int_dht22: TEMPINTDHT22,
+    var temp_int_dht22: TEMPINTDHT22 ?= null
 
     @SerializedName("TEMP_OUT_DHT22")
     @Expose
-    var temp_out_dht22: TEMPOUTDHT22
+    var temp_out_dht22: TEMPOUTDHT22 ?= null
 
-)
+    @SerializedName("ACTUATOR1_STATE")
+    @Expose
+    var actuator1State: ACTUATOR1STATE ?= null
+}
 
 @Entity(tableName = "TEMPINTDHT22")
 data class TEMPINTDHT22(
