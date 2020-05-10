@@ -3,7 +3,6 @@ package fr.iutbourg.iotv2.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import fr.iutbourg.iotv2.data.model.SensorApiResponse
-import fr.iutbourg.iotv2.data.model.SensorModel
 import fr.iutbourg.iotv2.data.networking.datasource.SensorDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -13,12 +12,13 @@ class SensorRepositoryImpl: SensorRepository {
 
     override fun getSensorsValues(
         viewModelScope: CoroutineScope
-    ): LiveData<SensorModel> {
+    ): LiveData<SensorApiResponse> {
         val data = MutableLiveData<SensorApiResponse>()
         viewModelScope.launch(Dispatchers.IO) {
             val dataSource = SensorDataSource.instance
             data.postValue(dataSource.getSensorsValues())
         }
+        return data
     }
 
 }
@@ -27,7 +27,7 @@ class SensorRepositoryImpl: SensorRepository {
 interface SensorRepository {
     fun getSensorsValues(
         viewModelScope: CoroutineScope
-    ): LiveData<SensorModel>
+    ): LiveData<SensorApiResponse>
 
     companion object {
         val sensorContext: SensorRepository by lazy {

@@ -1,7 +1,6 @@
 package fr.iutbourg.iotv2.data.networking.datasource
 
 import fr.iutbourg.iotv2.data.model.SensorApiResponse
-import fr.iutbourg.iotv2.data.model.SensorModel
 import fr.iutbourg.iotv2.data.networking.HttpClientManager
 import fr.iutbourg.iotv2.data.networking.api.SensorApi
 import fr.iutbourg.iotv2.data.networking.createApi

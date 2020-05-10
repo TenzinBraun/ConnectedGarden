@@ -7,13 +7,11 @@ import retrofit2.http.GET
 
 interface SensorApi {
     @GET(GET_ALL_SENSORS_VALUES)
-    suspend fun getAllSensorsValues(
-
-    ) : Response<SensorModel>
+    suspend fun getAllSensorsValues() : Response<SensorModel>
 
     companion object {
-        const val BASE_URL: String = "https://api-project-1026902595480.firebaseio.com/.json"
+        const val BASE_URL: String = "https://api-project-1026902595480.firebaseio.com/"
 
-        const val GET_ALL_SENSORS_VALUES = "" // TODO
+        const val GET_ALL_SENSORS_VALUES = ".json" // TODO
     }
 }
