@@ -21,7 +21,15 @@ class MainActivity : AppCompatActivity() {
             sensorViewModel = ViewModelProvider(this, SensorViewModel).get()
         } ?: throw IllegalStateException("Invalid access")
 
-        sensorViewModel.sensor.observe(this) {
+        loadData()
+        this.swipe_refresher.setOnRefreshListener {
+            loadData()
+            this.swipe_refresher.isRefreshing = false
+        }
+    }
+
+    private fun loadData() {
+        sensorViewModel.sensor().observe(this) {
             it.let {
                 it.sensor.let {
                     if (it != null) {

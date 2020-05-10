@@ -9,7 +9,9 @@ class SensorViewModel(private val
     repository: SensorRepository
 ): ViewModel(){
 
-    val sensor = repository.getSensorsValues(viewModelScope)
+    fun sensor() = repository.getSensorsValues(viewModelScope)
+
+
 
     companion object Factory : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
