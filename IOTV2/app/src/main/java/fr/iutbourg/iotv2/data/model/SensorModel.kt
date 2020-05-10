@@ -2,6 +2,7 @@ package fr.iutbourg.iotv2.data.model
 
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 import com.google.gson.annotations.Expose
@@ -10,7 +11,7 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "ACTUATOR1STATE")
 data class ACTUATOR1STATE(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @SerializedName("actuator1StateID")
     var actuator1StateID: Int ,
     @SerializedName("ACTUATOR9_STATE")
@@ -21,7 +22,7 @@ data class ACTUATOR1STATE(
 
 @Entity(tableName = "SensorModel")
 data class SensorModel(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @SerializedName("sensor_id")
     var sensorID: Int,
 
@@ -48,25 +49,26 @@ data class SensorModel(
     @SerializedName("titre")
     @Expose
     var titre: String? = null
-
-
 ) {
     @SerializedName("TEMP_INT_DHT22")
     @Expose
-    var temp_int_dht22: TEMPINTDHT22 ?= null
+    @Ignore
+    val temp_int_dht22: TEMPINTDHT22? = null
 
     @SerializedName("TEMP_OUT_DHT22")
     @Expose
-    var temp_out_dht22: TEMPOUTDHT22 ?= null
+    @Ignore
+    val temp_out_dht22: TEMPOUTDHT22? = null
 
     @SerializedName("ACTUATOR1_STATE")
     @Expose
-    var actuator1State: ACTUATOR1STATE ?= null
+    @Ignore
+    val actuator1State: ACTUATOR1STATE? = null
 }
 
 @Entity(tableName = "TEMPINTDHT22")
 data class TEMPINTDHT22(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @SerializedName("temp_in_dht22_id")
     var tempInDHT22ID: Int?,
 
@@ -77,12 +79,11 @@ data class TEMPINTDHT22(
     @SerializedName("temperature")
     @Expose
     var temperature: Double? = null
-
 )
 
 @Entity(tableName = "TEMPOUTDHT22")
 data class TEMPOUTDHT22(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @SerializedName("temp_out_dht22_id")
     var tempOutDHT22ID: Int?,
 
