@@ -17,7 +17,7 @@
             android:id="@+id/guideline20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.2"
+            app:layout_constraintGuide_percent="0.15"
             android:orientation="horizontal"
             />
 
@@ -25,7 +25,7 @@
             android:id="@+id/guideline40"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.4"
+            app:layout_constraintGuide_percent="0.40"
             android:orientation="horizontal"
             />
 
@@ -33,7 +33,7 @@
             android:id="@+id/guideline60"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.6"
+            app:layout_constraintGuide_percent="0.65"
             android:orientation="horizontal"
             />
 
@@ -41,7 +41,7 @@
             android:id="@+id/guideline80"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.8"
+            app:layout_constraintGuide_percent="0.9"
             android:orientation="horizontal"
             />
 
@@ -49,8 +49,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_temperature_IN"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/card_view_humidity_IN"
                 app:layout_constraintTop_toTopOf="@+id/guideline20"
@@ -63,6 +63,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_above="@id/value_temperature_IN"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="18dp"
                         android:text="Temperature IN"
                         />
                     <TextView
@@ -70,6 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Value"
+                        android:layout_marginTop="20dp"
                         android:layout_centerVertical="true"
                         android:layout_centerHorizontal="true"
                         />
@@ -78,8 +81,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_humidity_IN"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:layout_constraintStart_toEndOf="@id/card_view_temperature_IN"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guideline20"
@@ -100,6 +103,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Value"
+                        android:layout_marginTop="20dp"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         />
@@ -110,8 +114,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_temperature_OUT"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/card_view_humidity_OUT"
                 app:layout_constraintTop_toTopOf="@id/guideline40"
@@ -133,6 +137,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Value"
+                        android:layout_marginTop="20dp"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         />
@@ -141,8 +146,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_humidity_OUT"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:layout_constraintStart_toEndOf="@+id/card_view_temperature_OUT"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/guideline40"
@@ -164,6 +169,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Value"
+                        android:layout_marginTop="20dp"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         />
@@ -174,8 +180,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_pir1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/card_view_pir2"
                 app:layout_constraintTop_toTopOf="@id/guideline60"
@@ -188,6 +194,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="PIR1"
+                        android:textSize="18dp"
+
                         android:layout_centerHorizontal="true"
                         android:layout_above="@id/value_pir1"
                         />
@@ -196,6 +204,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Value"
+                        android:layout_marginTop="20dp"
                         android:textAlignment="center"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
@@ -205,8 +214,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_pir2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:layout_constraintStart_toEndOf="@+id/card_view_temperature_OUT"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/guideline60"
@@ -219,6 +228,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="PIR2"
+                        android:textSize="18dp"
                         android:layout_centerHorizontal="true"
                         android:layout_above="@id/value_pir2"
                         />
@@ -227,6 +237,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Value"
+                        android:layout_marginTop="20dp"
                         android:textAlignment="center"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
