@@ -1,5 +1,6 @@
 package fr.iutbourg.iotv2.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -12,7 +13,7 @@ import fr.iutbourg.iotv2.data.model.TEMPOUTDHT22
 interface SensorDao {
 
     @Query(ACTUATOR)
-    fun getActuator1STATE() : ACTUATOR1STATE
+    suspend fun getActuator1STATE() : ACTUATOR1STATE
 
     @Query(SensorModel)
     fun getSensorModel() : SensorModel
@@ -50,9 +51,9 @@ interface SensorDao {
     fun updateTempInDHT22(vararg itemSensor: TEMPINTDHT22)
 
     companion object QueryName {
-        const val ACTUATOR = ""
-        const val SensorModel = ""
-        const val TEMP_OUT_DHT22 = ""
-        const val TEMP_INT_DHT22 = ""
+        const val ACTUATOR = "SELECT * FROM ACTUATOR1STATE"
+        const val SensorModel = "SELECT * FROM SensorModel"
+        const val TEMP_OUT_DHT22 = "SELECT * FROM TEMPOUTDHT22"
+        const val TEMP_INT_DHT22 = "SELECT * FROM TEMPINTDHT22"
     }
 }
