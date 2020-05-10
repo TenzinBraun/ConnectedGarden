@@ -7,8 +7,8 @@ import androidx.lifecycle.get
 import androidx.lifecycle.observe
 import fr.iutbourg.iotv2.R
 import fr.iutbourg.iotv2.ui.viewmodel.SensorViewModel
-import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.IllegalStateException
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val test = ""
         this.run {
             sensorViewModel = ViewModelProvider(this, SensorViewModel).get()
         } ?: throw IllegalStateException("Invalid access")
@@ -48,5 +49,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }
